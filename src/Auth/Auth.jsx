@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import Hero from "../components/Hero/Hero";
+import HeroImage from "../components/HeroImage/HeroImage";
 
 const Auth = () => {
   return (
-    <>
-      <Hero />
+    <div className="lg:grid grid-cols-2">
+      <div className="hidden lg:block h-screen">
+        <HeroImage />
+      </div>
       <Outlet />
-    </>
+    </div>
   );
 };
 
