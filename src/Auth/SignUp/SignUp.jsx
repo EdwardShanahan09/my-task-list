@@ -1,51 +1,57 @@
 import { useState } from "react";
+import InputField from "../../components/InputField/InputField";
+
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const SignUp = () => {
-  let [name, setName] = useState("");
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
-  let [confirmPassword, setConfirmPassword] = useState("");
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    console.log(name, email, password, confirmPassword);
+    setFormFields({ ...formFields, [name]: value });
   };
 
   return (
     <div>
       <h2 className="font-bold text-lg mb-2 md:mb-4 md:text-3xl">Sign Up</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
+      <form>
+        <InputField
+          labelId="displayId"
+          labelName="Display Name"
           type="text"
-          name="name"
-          onChange={(event) => setName(event.target.value)}
+          name="displayName"
+          onChange={handleChange}
         />
 
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
+        <InputField
+          labelId="email"
+          labelName="Email"
           type="email"
           name="email"
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={handleChange}
         />
 
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
+        <InputField
+          labelId="password"
+          labelName="Password"
           type="password"
           name="password"
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={handleChange}
         />
 
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          id="confirmPassword"
+        <InputField
+          labelId="confirmPassword"
+          labelName="Confirm Password"
           type="password"
           name="confirmPassword"
-          onChange={(event) => setConfirmPassword(event.target.value)}
+          onChange={handleChange}
         />
 
         <button>Sign Up</button>
