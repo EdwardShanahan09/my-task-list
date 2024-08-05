@@ -7,7 +7,9 @@ const Auth = () => {
       <div className="hidden lg:block h-screen">
         <HeroImage />
       </div>
-      <Outlet />
+      <div className="flex justify-center items-center h-screen">
+        <Outlet />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,11 @@
+import HeroText from "../../components/HeroText/HeroText";
+
 const SignUp = () => {
-  return <h1>Sign Up Page</h1>;
+  return (
+    <div>
+      <HeroText />
+    </div>
+  );
 };
 
 export default SignUp;
