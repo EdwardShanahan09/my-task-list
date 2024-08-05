@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import HeroImage from "../components/HeroImage/HeroImage";
+import HeroText from "../components/HeroText/HeroText";
 
 const Auth = () => {
   return (
@@ -7,7 +8,8 @@ const Auth = () => {
       <div className="hidden lg:block h-screen">
         <HeroImage />
       </div>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center flex-col h-screen">
+        <HeroText />
         <Outlet />
       </div>
     </div>
