@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputField from "../../components/InputField/InputField";
+import { Link } from "react-router-dom";
 
 const defaultFormFields = {
   displayName: "",
@@ -21,7 +22,7 @@ const SignUp = () => {
   return (
     <div>
       <h2 className="font-bold text-lg mb-2 md:mb-4 md:text-3xl">Sign Up</h2>
-      <form>
+      <form className="mb-4">
         <InputField
           labelId="displayId"
           labelName="Name"
@@ -58,6 +59,13 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+
+      <p className="text-sm italic text-right">
+        Have an account?{" "}
+        <Link className="text-indigo-600" to="/login">
+          Log In
+        </Link>
+      </p>
     </div>
   );
 };
