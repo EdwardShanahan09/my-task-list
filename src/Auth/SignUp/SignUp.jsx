@@ -24,7 +24,7 @@ const SignUp = () => {
       <form>
         <InputField
           labelId="displayId"
-          labelName="Display Name"
+          labelName="Name"
           type="text"
           name="displayName"
           onChange={handleChange}
@@ -54,7 +54,9 @@ const SignUp = () => {
           onChange={handleChange}
         />
 
-        <button>Sign Up</button>
+        <button className="w-full py-2 px-4 mt-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+          Sign Up
+        </button>
       </form>
     </div>
   );
