@@ -3,10 +3,8 @@ import InputField from "../../components/InputField/InputField";
 import { Link } from "react-router-dom";
 
 const defaultFormFields = {
-  displayName: "",
   email: "",
   password: "",
-  confirmPassword: "",
 };
 
 const Login = () => {

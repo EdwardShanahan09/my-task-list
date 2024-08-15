@@ -3,7 +3,7 @@ import InputField from "../../components/InputField/InputField";
 import { Link } from "react-router-dom";
 
 const defaultFormFields = {
-  displayName: "",
+  username: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -11,7 +11,8 @@ const defaultFormFields = {
 
 const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { displayName, email, password, confirmPassword } = formFields;
+  const { username, email, password, confirmPassword } = formFields;
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,15 +20,31 @@ const SignUp = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (username.length <= 3) {
+      setErrorMessage("Username has to be 3 or more characters.");
+    }
+
+    if (password != confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+    }
+
+    if (password.length < 6) {
+      setErrorMessage("Password has to be 6 or more characters.");
+    }
+  };
+
   return (
     <div>
       <h2 className="font-bold text-lg mb-2 md:mb-4 md:text-3xl">Sign Up</h2>
-      <form className="mb-4">
+      <form onSubmit={handleSubmit} className="mb-4">
         <InputField
-          labelId="displayId"
-          labelName="Name"
+          labelId="usernameId"
+          labelName="Username"
           type="text"
-          name="displayName"
+          name="username"
           onChange={handleChange}
         />
 
@@ -59,13 +76,17 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
-
-      <p className="text-sm italic text-right">
+      <p className="text-sm italic text-right mb-4">
         Have an account?{" "}
         <Link className="text-indigo-600" to="/login">
           Log In
         </Link>
       </p>
+      {errorMessage ? (
+        <p className="text-sm text-red-500">{errorMessage}</p>
+      ) : (
+        " "
+      )}
     </div>
   );
 };
