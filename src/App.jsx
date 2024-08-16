@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const { currentUser } = useContext(UserContext);
   const isAuthenticated = currentUser;
+
   return (
     <>
       <Routes>
