@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import InputField from "../../components/InputField/InputField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const defaultFormFields = {
   username: "",
@@ -13,6 +14,8 @@ const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, email, password, confirmPassword } = formFields;
   const [errorMessage, setErrorMessage] = useState("");
+  const { setCurrentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,14 +28,17 @@ const SignUp = () => {
 
     if (username.length <= 3) {
       setErrorMessage("Username has to be 3 or more characters.");
+      return;
     }
 
     if (password != confirmPassword) {
       setErrorMessage("Passwords do not match.");
+      return;
     }
 
     if (password.length < 6) {
       setErrorMessage("Password has to be 6 or more characters.");
+      return;
     }
   };
 
