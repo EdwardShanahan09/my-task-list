@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { registerWithEmail } from "../../lib/appwrite";
 
 const defaultFormFields = {
   username: "",
@@ -23,7 +24,7 @@ const SignUp = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (username.length <= 3) {
@@ -39,6 +40,15 @@ const SignUp = () => {
     if (password.length < 6) {
       setErrorMessage("Password has to be 6 or more characters.");
       return;
+    }
+
+    try {
+      await registerWithEmail(email, password);
+
+      console.log(await registerWithEmail());
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
     }
   };
 
