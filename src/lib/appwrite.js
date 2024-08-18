@@ -8,6 +8,6 @@ client
 
 const account = new Account(client);
 
-export const registerWithEmail = async (email, password) => {
-  return await account.create(ID.unique(), email, password);
+export const registerWithEmail = async (email, password, name) => {
+  return await account.create(ID.unique(), email, password, name);
 };

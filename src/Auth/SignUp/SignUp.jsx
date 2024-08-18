@@ -15,7 +15,7 @@ const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, email, password, confirmPassword } = formFields;
   const [errorMessage, setErrorMessage] = useState("");
-  const { setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -43,10 +43,12 @@ const SignUp = () => {
     }
 
     try {
-      await registerWithEmail(email, password);
+      const user = await registerWithEmail(email, password, username);
 
-      console.log(await registerWithEmail());
+      setCurrentUser(user);
       navigate("/dashboard");
+
+      console.log(currentUser);
     } catch (error) {
       console.log(error);
     }

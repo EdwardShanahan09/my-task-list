@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const { currentUser } = useContext(UserContext);
-  const isAuthenticated = currentUser;
+  const isAuthenticated = !!currentUser;
 
   return (
     <>
