@@ -21,6 +21,11 @@ export const UserProvider = ({ children }) => {
     await login(email, password);
   };
 
+  const logout = async () => {
+    await account.deleteSession("current");
+    setUser(null);
+  };
+
   const init = async () => {
     try {
       const loggedIn = await account.get();
@@ -35,7 +40,7 @@ export const UserProvider = ({ children }) => {
     init();
   }, []);
 
-  const value = { current: user, login, register };
+  const value = { current: user, login, register, logout };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

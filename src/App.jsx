@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { UserContext, useUser } from "./context/UserContext";
+import { useUser } from "./context/UserContext";
 import Auth from "./Auth/Auth";
 import SignUp from "./Auth/SignUp/SignUp";
 import Login from "./Auth/Login/Login";
@@ -8,8 +7,9 @@ import RootLayout from "./root/RootLayout";
 import "./App.css";
 
 function App() {
-  const { currentUser } = useContext(UserContext);
   const user = useUser();
+
+  const isAuthenticated = user.current;
 
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
 
         <Route
           path="/dashboard"
-          element={user ? <RootLayout /> : <Navigate to="/" />}
+          element={isAuthenticated ? <RootLayout /> : <Navigate to="/" />}
         ></Route>
       </Routes>
     </>
