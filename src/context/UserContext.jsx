@@ -1,46 +1,28 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { account } from "../lib/appwrite";
-export const UserContext = createContext();
-import { ID } from "appwrite";
+import { createContext, useEffect, useState } from "react";
+// import { init } from "../lib/appwrite";
 
-export const useUser = () => {
-  return useContext(UserContext);
-};
+export const UserContext = createContext({
+  currentUser: null,
+  setCurrentUser: () => null,
+});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  const login = async (email, password) => {
-    const loggedIn = await account.createEmailPasswordSession(email, password);
-    setUser(loggedIn);
-  };
+  const value = { currentUser, setCurrentUser };
 
-  const register = async (email, password, name) => {
-    await account.create(ID.unique(), email, password, name);
+  // try {
+  //   const loggedIn = init();
 
-    await login(email, password);
-  };
+  //   setCurrentUser(loggedIn);
+  // } catch (error) {
+  //   console.log(error);
+  //   setCurrentUser(null);
+  // }
 
-  const logout = async () => {
-    await account.deleteSession("current");
-    setUser(null);
-  };
-
-  const init = async () => {
-    try {
-      const loggedIn = await account.get();
-
-      setUser(loggedIn);
-    } catch (error) {
-      setUser(null);
-    }
-  };
-
-  useEffect(() => {
-    init();
-  }, []);
-
-  const value = { current: user, login, register, logout };
+  // useEffect(() => {
+  //   init()
+  // })
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

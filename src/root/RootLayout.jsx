@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+import { logoutUser } from "../lib/appwrite";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 const RootLayout = () => {
-  const user = useUser();
   const navigate = useNavigate();
-
-  const { logout } = user;
-  console.log(useUser());
+  const setCurrentUser = useContext(UserContext);
 
   const handleLogout = () => {
-    logout();
+    logoutUser();
+
+    setCurrentUser(null);
 
     navigate("/");
   };

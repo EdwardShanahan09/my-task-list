@@ -1,14 +1,13 @@
 import { Outlet, Navigate } from "react-router-dom";
 import HeroImage from "../components/HeroImage/HeroImage";
 import HeroText from "../components/HeroText/HeroText";
-import { useUser } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 
 const Auth = () => {
-  const user = useUser();
+  const { currentUser } = useContext(UserContext);
+  const isAuthenticated = currentUser;
 
-  const isAuthenticated = user.current;
-
-  console.log(isAuthenticated);
   return (
     <>
       {isAuthenticated ? (

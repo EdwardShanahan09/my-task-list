@@ -1,16 +1,16 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useUser } from "./context/UserContext";
+import { useContext } from "react";
 import Auth from "./Auth/Auth";
 import SignUp from "./Auth/SignUp/SignUp";
 import Login from "./Auth/Login/Login";
 import RootLayout from "./root/RootLayout";
 import "./App.css";
+import { UserContext } from "./context/UserContext";
 
 function App() {
-  const user = useUser();
+  const { currentUser } = useContext(UserContext);
 
-  const isAuthenticated = user.current;
-
+  const isAuthenticated = currentUser;
   return (
     <>
       <Routes>

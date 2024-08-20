@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
+import { signupWithEmail } from "../../lib/appwrite";
 
 const defaultFormFields = {
   username: "",
@@ -14,8 +15,7 @@ const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { username, email, password, confirmPassword } = formFields;
   const [errorMessage, setErrorMessage] = useState("");
-  const { register } = useUser();
-
+  const { setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -43,8 +43,9 @@ const SignUp = () => {
     }
 
     try {
-      await register(email, password, username);
+      const user = await signupWithEmail(email, password, username);
 
+      setCurrentUser(user);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);

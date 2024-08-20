@@ -1,8 +1,9 @@
 import { useState } from "react";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
-
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import { loginWithEmail } from "../../lib/appwrite";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -11,8 +12,8 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { login } = useUser();
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,7 +25,9 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      await login(email, password);
+      const user = await loginWithEmail(email, password);
+
+      setCurrentUser(user);
 
       navigate("/dashboard");
     } catch (error) {
