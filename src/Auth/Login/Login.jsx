@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputField from "../../components/InputField/InputField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 const defaultFormFields = {
   email: "",
@@ -10,6 +11,8 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const { login } = useUser();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,10 +20,22 @@ const Login = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await login(email, password);
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error.code);
+    }
+  };
+
   return (
     <div>
       <h2 className="font-bold text-lg mb-2 md:mb-4 md:text-3xl">Login</h2>
-      <form className="mb-4">
+      <form onSubmit={handleSubmit} className="mb-4">
         <InputField
           labelId="email"
           labelName="Email"

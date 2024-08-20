@@ -1,8 +1,8 @@
 import { useState } from "react";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useUser } from "../../context/UserContext";
+
 const defaultFormFields = {
   username: "",
   email: "",
