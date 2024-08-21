@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-// import { init } from "../lib/appwrite";
-
+import { getUser } from "../lib/auth/auth";
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
@@ -11,18 +10,15 @@ export const UserProvider = ({ children }) => {
 
   const value = { currentUser, setCurrentUser };
 
-  // try {
-  //   const loggedIn = init();
+  useEffect(() => {
+    const initUser = async () => {
+      const user = await getUser();
 
-  //   setCurrentUser(loggedIn);
-  // } catch (error) {
-  //   console.log(error);
-  //   setCurrentUser(null);
-  // }
+      setCurrentUser(user);
+    };
 
-  // useEffect(() => {
-  //   init()
-  // })
+    initUser();
+  }, []);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

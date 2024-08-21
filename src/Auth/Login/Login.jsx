@@ -3,7 +3,7 @@ import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { loginWithEmail } from "../../lib/appwrite";
+import { loginWithEmail } from "../../lib/auth/auth";
 const defaultFormFields = {
   email: "",
   password: "",

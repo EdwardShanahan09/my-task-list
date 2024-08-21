@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
-import { signupWithEmail } from "../../lib/appwrite";
+import { signupWithEmail } from "../../lib/auth/auth";
 
 const defaultFormFields = {
   username: "",
