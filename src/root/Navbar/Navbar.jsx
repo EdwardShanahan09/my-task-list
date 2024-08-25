@@ -6,39 +6,38 @@ import SignoutIcon from "../../assets/icons/sign-out-icon.svg";
 
 const Navbar = () => {
   return (
-    <nav>
-      <div>
-        <img src={AvatarIcon} alt="Avatar Icon" />
-
-        <div>Profile Name</div>
-
-        <div>Progress Bar</div>
+    <nav className="flex md:flex-col md:h-full md:w-20 md:fixed md:left-0 md:top-0 md:bottom-0 bg-white shadow-md fixed bottom-0 left-0 right-0 p-4">
+      <div className="flex items-center justify-between md:flex-col">
+        <img className="w-5 mb-4" src={AvatarIcon} alt="Avatar Icon" />
+        <div className="hidden">Profile Name</div>
+        <div className="hidden">Progress Bar</div>
       </div>
 
-      <ul>
+      <ul className="flex md:flex-col md:space-y-4 space-x-4 md:space-x-0">
         <li>
           <a href="#">
-            <img src={TodayIcon} alt="Avatar Icon" />
-            <span className="">Today's Todos</span>
+            <img className="w-5" src={TodaysIcon} alt="Today's Todos Icon" />
+            <span className="hidden">Today's Todos</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src={TodayIcon} alt="Today's Icon" />
-            <span className="">All Todos</span>
+            <img className="w-5" src={TodayIcon} alt="All Todos Icon" />
+            <span className="hidden">All Todos</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <img src={CategoryIcon} alt="Category Icons" />
-            <span className="">Categories</span>
+            <img className="w-5" src={CategoryIcon} alt="Categories Icon" />
+            <span className="hidden">Categories</span>
           </a>
         </li>
       </ul>
-      <div>
+
+      <div className="mt-4 md:mt-auto">
         <button>
-          <img src={SignoutIcon} alt="Signout Icon" />
-          <span>Logout</span>
+          <img className="w-5" src={SignoutIcon} alt="Signout Icon" />
+          <span className="hidden">Logout</span>
         </button>
       </div>
     </nav>

@@ -10,18 +10,19 @@ const RootLayout = () => {
 
   const handleLogout = () => {
     logoutUser();
-
     setCurrentUser(null);
-
     navigate("/");
   };
 
   return (
-    <>
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Navbar />
-      <h1>Dashboard</h1>
-      <button onClick={handleLogout}>LogOut</button>
-    </>
+      <div className="flex-grow p-4 md:ml-20">
+        {" "}
+        {/* Adjusted to account for navbar width on large screens */}
+        <h1>Dashboard</h1>
+      </div>
+    </div>
   );
 };
 
