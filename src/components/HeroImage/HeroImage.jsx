@@ -1,13 +1,9 @@
-import HeroImg from "../../assets/images/hero.png";
+import HeroImg from "../../assets/images/hero.jpg";
 
 const HeroImage = () => {
   return (
     <>
-      <img
-        className="h-screen object-cover"
-        src={HeroImg}
-        alt="Man sitting at computer"
-      />
+      <img className="" src={HeroImg} alt="Man sitting at computer" />
     </>
   );
 };
