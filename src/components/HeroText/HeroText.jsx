@@ -1,19 +1,13 @@
 import Logo from "../../assets/icons/logo.svg";
-
+import "./HeroText.scss";
 const HeroText = () => {
   return (
-    <div className="mb-4 text-center">
-      <div className="flex justify-center items-center mb-2 md:mb-3">
-        <img
-          className="h-8 w-8 md:h-12 md:w-12"
-          src={Logo}
-          alt="My Task List Logo"
-        />
+    <div className="hero-text">
+      <div className="hero-text__logo">
+        <img height={40} width={40} src={Logo} alt="My Task List Logo" />
       </div>
-      <h1 className="font-bold text-2xl mb-2 md:mb-4 md:text-4xl">
-        My Task List
-      </h1>
-      <p className="text-sm italic">Keep track of your daily tasks!</p>
+      <h1 className="hero-text__heading">My Task List</h1>
+      <p className="hero-text__subtitle">Keep track of your daily tasks!</p>
     </div>
   );
 };
