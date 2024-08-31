@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
+import "./SignUp.scss";
 import InputField from "../../components/InputField/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { signupWithEmail } from "../../lib/auth/auth";
+import Form from "../../components/Form/Form";
 
 const defaultFormFields = {
   username: "",
@@ -54,8 +56,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <h2 className="font-bold text-lg mb-2 md:mb-4 md:text-3xl">Sign Up</h2>
-      <form onSubmit={handleSubmit} className="mb-4">
+      <Form title="Signup">
         <InputField
           labelId="usernameId"
           labelName="Username"
@@ -88,21 +89,13 @@ const SignUp = () => {
           onChange={handleChange}
         />
 
-        <button className="w-full py-2 px-4 mt-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-          Sign Up
-        </button>
-      </form>
-      <p className="text-sm italic text-right mb-4">
-        Have an account?{" "}
-        <Link className="text-indigo-600" to="/login">
-          Log In
-        </Link>
-      </p>
-      {errorMessage ? (
-        <p className="text-sm text-red-500">{errorMessage}</p>
-      ) : (
-        " "
-      )}
+        <button>Sign Up</button>
+
+        <p className="signup__link">
+          Have an account? <Link to="/login">Log In</Link>
+        </p>
+        {errorMessage ? <p>{errorMessage}</p> : " "}
+      </Form>
     </div>
   );
 };

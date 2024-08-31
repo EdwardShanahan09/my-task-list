@@ -1,0 +1,43 @@
+.form {
+  padding: 2rem;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 4px;
+
+  &__title {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.6rem;
+  }
+
+  button {
+    color: #fff;
+    background-color: #4f46e5;
+    font-size: 1.6rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    margin-top: 0.8rem;
+  }
+
+  &__link {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: right;
+
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
