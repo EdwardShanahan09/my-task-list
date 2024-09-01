@@ -14,11 +14,11 @@ const Auth = () => {
       {isAuthenticated ? (
         <Navigate to="/dashboard" />
       ) : (
-        <div className="hero">
-          <div className="hero__img">
+        <div className="auth">
+          <div className="auth__img">
             <HeroImage />
           </div>
-          <div className="hero__content">
+          <div className="auth__content">
             <HeroText />
             <Outlet />
           </div>

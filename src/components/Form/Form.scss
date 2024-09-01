@@ -5,6 +5,14 @@
   border-radius: 4px;
   margin-bottom: 1.6rem;
 
+  &__container {
+    @media (min-width: 900px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &__title {
     font-size: 1.8rem;
     margin-bottom: 1.6rem;

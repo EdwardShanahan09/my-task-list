@@ -55,49 +55,47 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <Form handleSubmit={handleSubmit} title="Signup">
-        <InputField
-          labelId="usernameId"
-          labelName="Username"
-          type="text"
-          name="username"
-          onChange={handleChange}
-        />
+    <Form handleSubmit={handleSubmit} title="Signup">
+      <InputField
+        labelId="usernameId"
+        labelName="Username"
+        type="text"
+        name="username"
+        onChange={handleChange}
+      />
 
-        <InputField
-          labelId="email"
-          labelName="Email"
-          type="email"
-          name="email"
-          onChange={handleChange}
-        />
+      <InputField
+        labelId="email"
+        labelName="Email"
+        type="email"
+        name="email"
+        onChange={handleChange}
+      />
 
-        <InputField
-          labelId="password"
-          labelName="Password"
-          type="password"
-          name="password"
-          onChange={handleChange}
-        />
+      <InputField
+        labelId="password"
+        labelName="Password"
+        type="password"
+        name="password"
+        onChange={handleChange}
+      />
 
-        <InputField
-          labelId="confirmPassword"
-          labelName="Confirm Password"
-          type="password"
-          name="confirmPassword"
-          onChange={handleChange}
-        />
+      <InputField
+        labelId="confirmPassword"
+        labelName="Confirm Password"
+        type="password"
+        name="confirmPassword"
+        onChange={handleChange}
+      />
 
-        <button>Sign Up</button>
+      <button>Sign Up</button>
 
-        <p className="form__link">
-          Have an account? <Link to="/login">Log In</Link>
-        </p>
+      <p className="form__link">
+        Have an account? <Link to="/login">Log In</Link>
+      </p>
 
-        {errorMessage ? <p className="form__error">{errorMessage}</p> : " "}
-      </Form>
-    </div>
+      {errorMessage ? <p className="form__error">{errorMessage}</p> : " "}
+    </Form>
   );
 };
 
