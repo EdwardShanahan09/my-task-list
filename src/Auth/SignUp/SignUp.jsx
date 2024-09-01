@@ -56,7 +56,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <Form title="Signup">
+      <Form handleSubmit={handleSubmit} title="Signup">
         <InputField
           labelId="usernameId"
           labelName="Username"
@@ -91,10 +91,11 @@ const SignUp = () => {
 
         <button>Sign Up</button>
 
-        <p className="signup__link">
+        <p className="form__link">
           Have an account? <Link to="/login">Log In</Link>
         </p>
-        {errorMessage ? <p>{errorMessage}</p> : " "}
+
+        {errorMessage ? <p className="form__error">{errorMessage}</p> : " "}
       </Form>
     </div>
   );
