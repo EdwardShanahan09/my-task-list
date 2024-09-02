@@ -1,0 +1,35 @@
+.navbar {
+  position: relative;
+  &__profile {
+    display: none;
+  }
+
+  &__list {
+    display: none;
+  }
+
+  &__logout {
+    display: none;
+  }
+
+  &__mobile {
+    background-color: #4f46e5;
+    padding: 2.4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    &-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    & img {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}

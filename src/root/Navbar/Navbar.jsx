@@ -1,6 +1,7 @@
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { logoutUser } from "../../lib/auth/auth";
+import "./Navbar.scss";
 import AvatarIcon from "../../assets/icons/avatar.svg";
 import TodayIcon from "../../assets/icons/today-icon.svg";
 import TodaysIcon from "../../assets/icons/all-icon.svg";
@@ -16,16 +17,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-500">
+    <nav className="navbar">
       {/* Desktop Menu */}
-      <div className="hidden md:flex md:flex-col md:h-full md:w-20 md:fixed md:left-0 md:top-0 md:bottom-0 bg-black shadow-md p-4">
-        <div className="flex flex-col items-center space-y-4">
-          <img className="w-5" src={AvatarIcon} alt="Avatar Icon" />
-          <div className="hidden">Profile Name</div>
-          <div className="hidden">Progress Bar</div>
+      <div className="navbar__profile">
+        <div className="">
+          <img className="" src={AvatarIcon} alt="Avatar Icon" />
+          <div className="">Profile Name</div>
+          <div className="">Progress Bar</div>
         </div>
 
-        <ul className="flex-1 flex flex-col items-center justify-between space-y-4">
+        <ul className="navbar__list">
           <li>
             <a href="#">
               <img className="w-5" src={TodaysIcon} alt="Today's Todos Icon" />
@@ -46,7 +47,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="flex justify-center mt-auto">
+        <div className="navbar__logout">
           <button onClick={logout}>
             <img className="w-5" src={SignoutIcon} alt="Signout Icon" />
             <span className="hidden">Logout</span>
@@ -55,31 +56,51 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className="flex md:hidden fixed bottom-0 left-0 right-0 bg-purple-700 p-4">
-        <ul className="flex justify-between items-center w-full space-x-4">
-          <li>
-            <a href="">
-              <img className="w-5" src={AvatarIcon} alt="Avatar Icon" />
+      <div className="navbar__mobile">
+        <ul className="navbar__mobile-list">
+          <li className="navbar__mobile-item">
+            <a className="navbar__mobile-link" href="">
+              <img
+                className="navbar__mobile-icon"
+                src={AvatarIcon}
+                alt="Avatar Icon"
+              />
             </a>
           </li>
-          <li>
-            <a href="#">
-              <img className="w-6" src={TodaysIcon} alt="Today's Todos Icon" />
+          <li className="navbar__mobile-item">
+            <a className="navbar__mobile-link" href="#">
+              <img
+                className="navbar__mobile-icon"
+                src={TodaysIcon}
+                alt="Today's Todos Icon"
+              />
             </a>
           </li>
-          <li>
-            <a href="#">
-              <img className="w-6" src={TodayIcon} alt="All Todos Icon" />
+          <li className="navbar__mobile-item">
+            <a className="navbar__mobile-link" href="#">
+              <img
+                className="navbar__mobile-icon"
+                src={TodayIcon}
+                alt="All Todos Icon"
+              />
             </a>
           </li>
-          <li>
-            <a href="#">
-              <img className="w-6" src={CategoryIcon} alt="Categories Icon" />
+          <li className="navbar__mobile-item">
+            <a className="navbar__mobile-link" href="#">
+              <img
+                className="navbar__mobile-icon"
+                src={CategoryIcon}
+                alt="Categories Icon"
+              />
             </a>
           </li>
-          <li>
-            <a href="#" onClick={logout}>
-              <img className="w-6" src={SignoutIcon} alt="Signout Icon" />
+          <li className="navbar__mobile-item">
+            <a className="navbar__mobile-link" href="#" onClick={logout}>
+              <img
+                className="navbar__mobile-icon"
+                src={SignoutIcon}
+                alt="Signout Icon"
+              />
             </a>
           </li>
         </ul>
