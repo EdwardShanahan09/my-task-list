@@ -19,8 +19,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       {/* Desktop Menu */}
-      <div className="navbar__profile">
-        <div className="">
+      <div className="navbar__container">
+        <div className="navbar__profile">
           <img className="" src={AvatarIcon} alt="Avatar Icon" />
           <div className="">Profile Name</div>
           <div className="">Progress Bar</div>
@@ -47,11 +47,8 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="navbar__logout">
-          <button onClick={logout}>
-            <img className="w-5" src={SignoutIcon} alt="Signout Icon" />
-            <span className="hidden">Logout</span>
-          </button>
+        <div onClick={logout} className="navbar__logout">
+          <img className="w-5" src={SignoutIcon} alt="Signout Icon" />
         </div>
       </div>
 
