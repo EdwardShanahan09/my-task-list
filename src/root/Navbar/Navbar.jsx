@@ -22,27 +22,26 @@ const Navbar = () => {
       <div className="navbar__container">
         <div className="navbar__profile">
           <img className="" src={AvatarIcon} alt="Avatar Icon" />
-          <div className="">Profile Name</div>
-          <div className="">Progress Bar</div>
         </div>
 
         <ul className="navbar__list">
           <li>
             <a href="#">
-              <img className="w-5" src={TodaysIcon} alt="Today's Todos Icon" />
-              <span className="hidden">Today's Todos</span>
+              <img src={TodaysIcon} alt="Today's Todos Icon" />
+              <span>Today's Todos</span>{" "}
+              {/* Make sure text is visible for desktop */}
             </a>
           </li>
           <li>
             <a href="#">
-              <img className="w-5" src={TodayIcon} alt="All Todos Icon" />
-              <span className="hidden">All Todos</span>
+              <img src={TodayIcon} alt="All Todos Icon" />
+              <span>All Todos</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <img className="w-5" src={CategoryIcon} alt="Categories Icon" />
-              <span className="hidden">Categories</span>
+              <img src={CategoryIcon} alt="Categories Icon" />
+              <span>Categories</span>
             </a>
           </li>
         </ul>

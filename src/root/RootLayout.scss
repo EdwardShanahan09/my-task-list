@@ -1,8 +1,13 @@
 .root-layout {
   height: 100vh;
+
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 100px 1fr;
     gap: 1.6rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 150px 1fr;
   }
 }
