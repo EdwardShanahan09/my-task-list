@@ -6,6 +6,7 @@ import Login from "./Auth/Login/Login";
 import RootLayout from "./root/RootLayout";
 import "./App.css";
 import { UserContext } from "./context/UserContext";
+import Categories from "./root/Categories/Categories";
 
 function App() {
   const { currentUser } = useContext(UserContext);
@@ -22,7 +23,9 @@ function App() {
         <Route
           path="/dashboard"
           element={isAuthenticated ? <RootLayout /> : <Navigate to="/" />}
-        ></Route>
+        >
+          <Route path="categories" element={<Categories />} />
+        </Route>
       </Routes>
     </>
   );

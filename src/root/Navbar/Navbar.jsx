@@ -4,9 +4,10 @@ import { logoutUser } from "../../lib/auth/auth";
 import "./Navbar.scss";
 import AvatarIcon from "../../assets/icons/avatar.svg";
 import TodayIcon from "../../assets/icons/today-icon.svg";
-import TodaysIcon from "../../assets/icons/all-icon.svg";
+import AllIcon from "../../assets/icons/all-icon.svg";
 import CategoryIcon from "../../assets/icons/category-icon.svg";
 import SignoutIcon from "../../assets/icons/sign-out-icon.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { setCurrentUser } = useContext(UserContext);
@@ -27,22 +28,21 @@ const Navbar = () => {
         <ul className="navbar__list">
           <li>
             <a href="#">
-              <img src={TodaysIcon} alt="Today's Todos Icon" />
+              <img src={TodayIcon} alt="Today's Todos Icon" />
               <span>Today's Todos</span>{" "}
-              {/* Make sure text is visible for desktop */}
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={TodayIcon} alt="All Todos Icon" />
+              <img src={AllIcon} alt="All Todos Icon" />
               <span>All Todos</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <Link to="categories">
               <img src={CategoryIcon} alt="Categories Icon" />
               <span>Categories</span>
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -67,7 +67,7 @@ const Navbar = () => {
             <a className="navbar__mobile-link" href="#">
               <img
                 className="navbar__mobile-icon"
-                src={TodaysIcon}
+                src={TodayIcon}
                 alt="Today's Todos Icon"
               />
             </a>
@@ -76,7 +76,7 @@ const Navbar = () => {
             <a className="navbar__mobile-link" href="#">
               <img
                 className="navbar__mobile-icon"
-                src={TodayIcon}
+                src={AllIcon}
                 alt="All Todos Icon"
               />
             </a>
