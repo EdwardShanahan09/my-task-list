@@ -82,13 +82,13 @@ const Navbar = () => {
             </a>
           </li>
           <li className="navbar__mobile-item">
-            <a className="navbar__mobile-link" href="#">
+            <Link to="categories" className="navbar__mobile-link" href="#">
               <img
                 className="navbar__mobile-icon"
                 src={CategoryIcon}
                 alt="Categories Icon"
               />
-            </a>
+            </Link>
           </li>
           <li className="navbar__mobile-item">
             <a className="navbar__mobile-link" href="#" onClick={logout}>

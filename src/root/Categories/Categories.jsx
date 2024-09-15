@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { createCategory, listCategories } from "../../lib/database/database";
 import { UserContext } from "../../context/UserContext";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import "./Categories.scss";
 
 const Categories = () => {
   const [category, setCategory] = useState("");
@@ -36,19 +38,21 @@ const Categories = () => {
   }, [currentUser]);
 
   return (
-    <div>
-      <input
-        onChange={(event) => setCategory(event.target.value)}
-        type="text"
-        value={category}
-      />
-      <button onClick={handleNewCategory}>Add Category</button>
+    <div className="categories">
+      <h2>Categories</h2>
 
-      <ul>
+      <div className="categories__container">
         {categories.map((category) => (
-          <li key={category.$id}>{category.title}</li>
+          <CategoryCard title={category.title} key={category.$id} />
         ))}
-      </ul>
+
+        {/* <input
+          onChange={(event) => setCategory(event.target.value)}
+          type="text"
+          value={category}
+        />
+        <button onClick={handleNewCategory}>Add Category</button> */}
+      </div>
     </div>
   );
 };
