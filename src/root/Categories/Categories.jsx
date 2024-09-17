@@ -3,6 +3,7 @@ import { createCategory, listCategories } from "../../lib/database/database";
 import { UserContext } from "../../context/UserContext";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import "./Categories.scss";
+import CreateCategoryCard from "../../components/CreateCategoryCard/CreateCategoryCard";
 
 const Categories = () => {
   const [category, setCategory] = useState("");
@@ -42,6 +43,8 @@ const Categories = () => {
       <h2>Categories</h2>
 
       <div className="categories__container">
+        <CreateCategoryCard />
+
         {categories.map((category) => (
           <CategoryCard title={category.title} key={category.$id} />
         ))}
